@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RMI_Banque_Server:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RMI_Banque_Server_jar</output-path>
+    <root id="archive" name="RMI_Banque_Server.jar">
+      <element id="module-output" name="RMI_Banque_Server" />
+    </root>
+  </artifact>
+</component>
