@@ -3,17 +3,18 @@ package rmiServer;
 import rmiService.BanqueImpl;
 import rmiService.IBanque;
 
-import java.rmi.Naming;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.rmi.registry.LocateRegistry;
 
 public class BanqueServer {
-    private static String URL = "rmi://localhost:1234/banque";
     public static void main(String[] args){
         try{
-            LocateRegistry.createRegistry(1234);
+            LocateRegistry.createRegistry(1099);
             IBanque banque = new BanqueImpl();
-            Naming.rebind(URL,banque);
-            System.out.println("service publiée sur: "+URL);
+            Context ctx = new InitialContext();
+            ctx.rebind("banque", banque);
+            System.out.println("service banque publié dans l'annuaire JNDI (rmi://localhost:1099)");
         }catch(Exception e){
             e.printStackTrace();
         }
